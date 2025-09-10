@@ -6,23 +6,27 @@
     <title>8号店铺</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
-            background-color: #f9f9f9;
+            font-family: 'Helvetica', 'Arial', sans-serif;
+            background-color: #fff; /* 白色背景 */
             margin: 0;
             padding: 0;
+            color: #333; /* 深灰色字体 */
         }
         header {
-            background-color: #2c3e50;
-            color: white;
-            padding: 20px 0;
+            background-color: transparent; /* 透明背景 */
+            color: #333;
+            padding: 40px 0;
             text-align: center;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* 轻微阴影 */
         }
         section {
             padding: 40px 10%;
             text-align: center;
         }
         h2 {
-            color: #2c3e50;
+            color: #333;
+            font-size: 32px;
+            margin-bottom: 20px;
         }
         .product {
             display: flex;
@@ -31,12 +35,16 @@
             margin: 20px 0;
         }
         .product div {
-            background-color: white;
-            margin: 10px;
+            background-color: #fff;
+            margin: 15px;
             padding: 20px;
             border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            width: 200px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1); /* 轻微阴影 */
+            width: 230px;
+            transition: transform 0.3s;
+        }
+        .product div:hover {
+            transform: translateY(-10px); /* 鼠标悬停效果 */
         }
         .product img {
             width: 100%;
@@ -44,31 +52,28 @@
             border-radius: 10px;
         }
         .product .price {
-            font-size: 20px;
-            color: #e74c3c;
+            font-size: 22px;
+            color: #e74c3c; /* 小米优品红色 */
             margin-top: 10px;
         }
         footer {
-            background-color: #2c3e50;
-            color: white;
+            background-color: transparent; /* 透明背景 */
+            color: #333;
             text-align: center;
             padding: 20px 0;
         }
-        .qr-code img {
-            width: 150px;
-            height: 150px;
-        }
         .btn {
-            background-color: #e74c3c;
+            background-color: #e74c3c; /* 小米优品红色 */
             color: white;
-            padding: 10px 20px;
+            padding: 12px 20px;
             border: none;
             border-radius: 5px;
             cursor: pointer;
             text-decoration: none;
+            font-weight: bold;
         }
         .btn:focus, .btn:hover {
-            background-color: #c0392b;
+            background-color: #c0392b; /* 小米优品红色暗色 */
         }
     </style>
 </head>
@@ -86,69 +91,33 @@
             <p>产品编号1:谷歌新邮箱</p>
             <p>（新邮箱都有300美元优惠活动）</p>
             <p class="price">$30.00</p>
-            <!-- 添加跳转链接到付款页面 -->
             <a href="payment.html?product=product1&price=30" class="btn">购买</a>
         </div>
         <div>
             <img src="images/yahoo.png" alt="产品编号2">
             <p>产品编号2：yahoo新邮箱</p>
             <p class="price">$31.00</p>
-            <!-- 添加跳转链接到付款页面 -->
             <a href="payment.html?product=product2&price=31" class="btn">购买</a>
         </div>
-         <div>
+        <div>
             <a href="images/steam1.jpg" target="_blank">
             <img src="images/steam1.jpg" alt="产品编号3">
             </a>
             <p>产品编号3:steam账号</p>
-            <p>账号附带150个以上随机游戏，以及大型游戏（如：黑神话、地平线等等）的免费玩打的教程和破解软件</p>
             <p class="price">$78.00</p>
-            <!-- 添加跳转链接到付款页面 -->
             <a href="payment.html?product=product3&price=78" class="btn">购买</a>
         </div>
         <div>
             <img src="images/telegram.png" alt="产品编号4">
             <p>产品编号4:telegram账号</p>
             <p class="price">$60.00</p>
-            <!-- 添加跳转链接到付款页面 -->
             <a href="payment.html?product=product4&price=60" class="btn">购买</a>
-        </div>
-        <div>
-            <img src="images/letouji.jpg" alt="产品编号5">
-            <p>产品编号5:btc乐透机教程</p>
-            <p>（制作好的机器是100元/台）</p>
-            <p>十分钟开奖一次，现阶段机制下奖金约3.125个btc（约247万元）</p>
-            <p>注：solo独立挖矿、pool矿池</p>
-            <p class="price">$38.00</p>
-            <!-- 添加跳转链接到付款页面 -->
-            <a href="payment.html?product=product5&price=38" class="btn">购买</a>
-        </div>
-        <div>
-            <a href="images/jidinghegujianxitong.png" target="_blank">
-            <img src="images/jidinghegujianxitong.png" alt="产品编号6">
-            </a>
-            <p>产品编号6:机顶盒固件系统</p>
-            <p>适合型号：魔百和CM311-1a/烽火680-lc</p>
-            <p>注：其他型号的机顶盒固件系统5元/套</p>
-            <p>固件系统自带谷歌框架、adb已开、已root</p>
-            <p class="price">$10.00</p>
-            <!-- 添加跳转链接到付款页面 -->
-            <a href="payment.html?product=product6&price=10" class="btn">购买</a>
-        </div>
-        <div>
-            <img src="images/win-defender.jpg" alt="产品编号7">
-            <p>产品编号7:win安全中心-启动停止软件</p>
-            <p>随时启动或关停windows安全中心</p>
-            <p class="price">$30.00</p>
-            <!-- 添加跳转链接到付款页面 -->
-            <a href="payment.html?product=product7&price=30" class="btn">购买</a>
         </div>
     </div>
 
     <h2>联系我们</h2>
     <p>有任何问题，请通过以下邮件联系我：</p>
-    <p>注：购买完成后，请将付款信息、购买的产品编号、您的邮箱地址等截图发送至下列邮箱</p>
-    <p><a href="mailto:lisondawang@outlook.com">lisondawang@outlook.com</a></p>
+    <p><a href="mailto:lisondawang@outlook.com" style="color: #2980b9;">lisondawang@outlook.com</a></p>
 
 </section>
 
@@ -158,30 +127,3 @@
 
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
