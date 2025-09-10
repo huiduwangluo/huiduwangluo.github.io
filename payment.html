@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>订单支付 - 8号店铺</title>
+  <style>
+    body { font-family: Arial, sans-serif; background: #f9f9f9; text-align: center; }
+    header { background: #2c3e50; color: white; padding: 20px 0; }
+    form { margin: 30px auto; background: white; padding: 20px; border-radius: 10px; box-shadow: 0 0 10px rgba(0,0,0,0.1); width: 90%; max-width: 400px; text-align: left; }
+    label { display: block; margin: 10px 0 5px; font-weight: bold; }
+    input, textarea { width: 100%; padding: 10px; margin-bottom: 15px; border-radius: 5px; border: 1px solid #ccc; }
+    button { background: #e74c3c; color: white; border: none; padding: 10px; border-radius: 5px; cursor: pointer; width: 100%; }
+    button:hover { background: #c0392b; }
+    .qr-code img { width: 200px; height: 200px; margin: 20px 0; }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>订单支付</h1>
+  <p>请扫码付款，并填写订单信息</p>
+</header>
+
+<div class="qr-code">
+  <p>👉 扫码付款：</p>
+  <img src="images/pay.png" alt="付款二维码">
+</div>
+
+<form id="orderForm">
+  <label>产品编号</label>
+  <input type="text" name="product" id="product" readonly>
+
+  <label>金额（元）</label>
+  <input type="text" name="price" id="price" readonly>
+
+  <label>您的邮箱</label>
+  <input type="email" name="customer_email" id="customer_email" required>
+
+  <label>备注（可填写付款方式、订单号或交易号等）</label>
+  <textarea name="remark" id="remark" rows="3"></textarea>
+
+  <button type="submit">提交订单</button>
+</form>
+
+<script>
+  // 自动填充 URL 参数
+  const params = new URLSearchParams(window.location.search);
+  document.getElementById('product').value = params.get('product') || '';
+  document.getElementById('price').value = params.get('price') || '';
+
+  // 提交后跳转到确认页面
+  document.getElementById('orderForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    const product = document.getElementById('product').value;
+    const price = document.getElementById('price').value;
+    const email = document.getElementById('customer_email').value;
+    const remark = document.getElementById('remark').value;
+
+    // 带参数跳转到确认页面
+    window.location.href = `confirm.html?product=${encodeURIComponent(product)}&price=${encodeURIComponent(price)}&email=${encodeURIComponent(email)}&remark=${encodeURIComponent(remark)}`;
+  });
+</script>
+
+</body>
+</html>
